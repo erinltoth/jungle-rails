@@ -24,6 +24,10 @@ class Admin::ProductsController < ApplicationController
     redirect_to [:admin, :products], notice: 'Product deleted!'
   end
 
+  def quantity?
+    quantity == 0
+  end
+
   private
 
   def product_params
