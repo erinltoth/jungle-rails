@@ -25,4 +25,4 @@ class CartsController < ApplicationController
     update_cart cart
   end
 
-end
+end 
