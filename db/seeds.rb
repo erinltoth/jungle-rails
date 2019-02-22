@@ -21,6 +21,27 @@ end
 
 # Let's do this ...
 
+reviews.create!({
+  description: "I keep falling over!",
+  rating: 2,
+  product_id: 7,
+  user_id: 1
+})
+
+reviews.create!({
+  description: "As an ascetic minimalist I truly enjoy this product",
+  rating: 5,
+  product_id: 10,
+  user_id: 2
+})
+
+reviews.create!({
+  description: "I am shaped like a human and only my boa constrictor fits on this bed",
+  rating: 1,
+  product_id: 10,
+  user_id: 3
+})
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
