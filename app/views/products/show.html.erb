@@ -31,7 +31,6 @@
 
     <div class="col-sm-6 col-sm-offset-1">
       <%= form_for [@product, @review] do |form| %>
-
         <% if form.object.errors.any? %>
           <div class="alert alert-danger">
             <strong>The following errors prevented saving:</strong>
@@ -42,7 +41,6 @@
             </ul>
           </div>
         <% end %>
-
         <div class="form-group">
           <%= form.label :rating %>
           <%= form.select :rating, [1, 2, 3, 4, 5]%>
@@ -68,3 +66,4 @@
   </article>
 
 </section>
+
