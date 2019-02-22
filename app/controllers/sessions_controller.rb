@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  def new
+  def new 
   end
 
   def create
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session.clear
     redirect_to '/login'
   end
 
