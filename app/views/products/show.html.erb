@@ -26,8 +26,36 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="padding-top: 50px">
     <h1>Reviews</h1>
+
+    <div class="col-sm-6 col-sm-offset-1">
+      <%= form_for [@product, @review] do |form| %>
+
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>The following errors prevented saving:</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :rating %>
+          <%= form.select :rating, [1, 2, 3, 4, 5]%>
+        </div>
+        <div class="form-group">
+          <%= form.label :description %>
+          <%= form.text_field :description, class: 'form-control' %>
+        </div>
+
+        <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
+      <% end %>
+
+    <div>
     <% @product.reviews.each do |review| %>
       <div>
       <span><h2><%= review.rating %>/5</h2></span>
@@ -35,6 +63,8 @@
       </div>
       <% end %>
     </div>
+    </div>
+    
   </article>
 
 </section>
