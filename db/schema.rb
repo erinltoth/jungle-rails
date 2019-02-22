@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20190221193148) do
     t.integer  "item_price_cents"
     t.integer  "total_price_cents"
     t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "updated_at",        null: false 
   end
 
   add_index "line_items", ["order_id"], name: "index_line_items_on_order_id", using: :btree
