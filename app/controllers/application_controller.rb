@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  add_flash_types :error
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
@@ -13,6 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def avg_rating(product)
+    product.reviews.average(:rating).to_f.round(1)
+  end
+  helper_method :avg_rating
 
   def cart
     @cart ||= cookies[:cart].present? ? JSON.parse(cookies[:cart]) : {}
