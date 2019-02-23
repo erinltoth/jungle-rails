@@ -1,9 +1,29 @@
-# Jungle
+Jungle
+=====================
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2 to assist in learning Ruby on Rails. 
+
+### Project Features
+- Products in the catalogue show a "SOLD OUT" badge if their quantity is zero.
+- Adding/removing products and adding categories are permitted only for those with an Admin sign-in
+- Users can register for an account and login to their account. If they try to register with an already existing e-mail address they are redirected to the login page. 
+- After completion of an order a detailed order page is shown with each item purchased, totals, their e-mail address, and order number.
+  - An e-mail version of this is also generated to be sent to their e-mail address.
+- Users cannot checkout with an empty cart.
+- Once logged in users can review products on a 1-5 scale and leave an optional description. They can also delete their own reviews. The average of a product's reviews are displayed in the catalogue. 
 
 
-## Setup
+### Project Stack
+ - Front End: HTML, SASS, Bootstrap
+ - Back End: Ruby on Rails
+
+### Screenshots
+![SOLD OUT Badge](https://github.com/erinltoth/jungle-rails/blob/master/docs/sold-out.png?raw=true)
+![Order Details Page](https://github.com/erinltoth/jungle-rails/blob/master/docs/order-complete.png?raw=true)
+![Full Rating & Review](https://github.com/erinltoth/jungle-rails/blob/master/docs/full-review.png?raw=true)
+![Review Average Display](https://github.com/erinltoth/jungle-rails/blob/master/docs/front-review.png?raw=true)
+
+### Setup
 
 1. Fork & Clone
 2. Run `bundle install` to install dependencies
@@ -15,14 +35,15 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 8. Put Stripe (test) keys into appropriate .env vars
 9. Run `bin/rails s -b 0.0.0.0` to start the server
 
-## Stripe Testing
+### Stripe Testing
 
 Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
 
-## Dependencies
+### Dependencies
 
-* Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
+* Rails 4.2
 * PostgreSQL 9.x
 * Stripe
+* Bcrypt
