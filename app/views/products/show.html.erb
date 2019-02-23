@@ -56,7 +56,7 @@
       <% end %>
     <div>
     <% @product.reviews.reverse.each do |review| %>
-      <div>
+      <div class="row" style="margin-bottom: 50px">
       <span><h2><%= review.rating %>/5</h2></span>
       <span><%= review.description %></span>
       <% if current_user && review.user_id == current_user.id %>
