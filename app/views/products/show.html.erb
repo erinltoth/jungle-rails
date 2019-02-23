@@ -30,6 +30,7 @@
     <h1>Reviews</h1>
 
     <div class="col-sm-6 col-sm-offset-1">
+    <% if current_user %>
       <%= form_for [@product, @review] do |form| %>
         <% if form.object.errors.any? %>
           <div class="alert alert-danger">
@@ -52,18 +53,22 @@
 
         <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
       <% end %>
-
+      <% end %>
     <div>
-    <% @product.reviews.each do |review| %>
+    <% @product.reviews.reverse.each do |review| %>
       <div>
       <span><h2><%= review.rating %>/5</h2></span>
       <span><%= review.description %></span>
+      <% if current_user && review.user_id == current_user.id %>
+            <%= button_to "Delete",
+                                    product_review_path(@product, review),
+                                    method: :delete,
+                                    data: { confirm: 'Are you sure?' },
+                                    :class => "btn-xs btn-danger" %>
+          <% end %>
       </div>
       <% end %>
     </div>
     </div>
-    
   </article>
-
 </section>
-
