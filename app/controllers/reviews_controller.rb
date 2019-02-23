@@ -2,8 +2,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @product = Product.find params[:product_id]
-    @user = User.find(session[:user_id])
-    @review.user = current_user 
+    @review.product_id = params[:product_id]
+    @review.user_id = current_user.id 
 
     if @review.save
       redirect_to [:products], notice: 'Review created!'
@@ -18,7 +18,8 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(
       :product_id,
       :description,
-      :rating
+      :rating,
+      
     )
   end
 end
