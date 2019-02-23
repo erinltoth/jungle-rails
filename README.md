@@ -1,7 +1,7 @@
 Jungle
 =====================
 
-A mini e-commerce application built with Rails 4.2 to assist in learning Ruby on Rails. 
+A mini e-commerce application built with Rails 4.2 to assist in learning Ruby on Rails. Code is inherited from the source and I added project features as outlined below.
 
 ### Project Features
 - Products in the catalogue show a "SOLD OUT" badge if their quantity is zero.
