@@ -32,7 +32,7 @@ RSpec.describe User, type: :model do
     it 'is not valid without an email' do
       subject.email = nil
       expect(subject).to_not be_valid
-      expect(subject.errors.full_messages[0]).to eql("Email cannot be blank")
+      expect(subject.errors.full_messages[0]).to eql("Email can't be blank")
     end
 
     it 'is not valid without unique email' do
@@ -47,25 +47,26 @@ RSpec.describe User, type: :model do
       subject.password = "1234"
       subject.password_confirmation = "1234"
       expect(subject).to_not be_valid
-      expect(subject.errors.full_messages[0]).to eql("Password is too short - please use at least 8 characters")
+      expect(subject.errors.full_messages[0]).to eql("Password is too short (minimum is 8 characters)")
     end
 
     it 'is not valid without a first name' do
       subject.first_name = nil
       expect(subject).to_not be_valid
-      expect(subject.errors.full_messages[0]).to eql("First name field must not be blank")
+      expect(subject.errors.full_messages[0]).to eql("First name can't be blank")
     end
 
     it 'is not valid without a last name' do
       subject.last_name = nil
       expect(subject).to_not be_valid
-      expect(subject.errors.full_messages[0]).to eql("Last name field must not be blank")
+      expect(subject.errors.full_messages[0]).to eql("Last name can't be blank")
     end
 
     describe '.authenticate_with_credentials' do
       it 'returns user object if credentials are valid' do
         subject.save!
         expect(User.authenticate_with_credentials("example@example.com", "password")).to_not eql(nil)
+      end
     end
 
     it 'returns nil if email is invalid' do
