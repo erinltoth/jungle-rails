@@ -18,6 +18,8 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
   scenario "they see a product detail page" do
     visit root_path
 
+    first('a.pull-right').click
+
     save_screenshot "product_details.png"
   end
 
