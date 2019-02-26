@@ -5,7 +5,7 @@ RSpec.describe Product, type: :model do
   subject {
     described_class.new(name: "Example", price: 100, quantity: 10, category: category)
   }
-  
+   
   describe 'Validations' do
     it 'is valid with valid attributes' do
       expect(subject).to be_valid
