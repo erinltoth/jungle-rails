@@ -19,8 +19,8 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     visit root_path
 
     first('a.pull-right').click
-
     save_screenshot "product_details.png"
+    expect(page).to have_content 'Reviews' 
   end
 
 end
